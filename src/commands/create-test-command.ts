@@ -16,7 +16,10 @@ import {
 async function openExistingTestFile(testPath: string): Promise<void> {
   const testUri = vscode.Uri.file(testPath);
   const doc = await vscode.workspace.openTextDocument(testUri);
-  await vscode.window.showTextDocument(doc);
+  await vscode.window.showTextDocument(doc, {
+    preview: false,
+    viewColumn: vscode.ViewColumn.Beside
+  });
   vscode.window.showInformationMessage(
     `Test file already exists: ${path.basename(testPath)}`
   );
@@ -34,7 +37,10 @@ async function createAndOpenTestFile(
   await vscode.workspace.fs.writeFile(testUri, Buffer.from(content, 'utf8'));
 
   const doc = await vscode.workspace.openTextDocument(testUri);
-  await vscode.window.showTextDocument(doc);
+  await vscode.window.showTextDocument(doc, {
+    preview: false,
+    viewColumn: vscode.ViewColumn.Beside
+  });
 
   vscode.window.showInformationMessage(
     `Created test: ${path.relative(workspaceRoot, testPath)}`
