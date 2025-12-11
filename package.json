@@ -2,7 +2,7 @@
   "name": "create-dart-test",
   "displayName": "Create Dart Test",
   "description": "Show a 'Create test file' CodeLens above class declarations in Dart projects",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "yosemiteyss",
   "engines": {
     "vscode": "^1.85.0"
